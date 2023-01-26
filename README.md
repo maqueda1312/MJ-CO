@@ -6,7 +6,7 @@
 - **Funcionalidad pública**
 
   - Navegación libre a través de la web pudiendo ver los ordenadores ya montados o componentes.
-  - Loguearte.
+  - LogIn.
   - Preguntas frecuentes.
   - Atención al cliente.
   
