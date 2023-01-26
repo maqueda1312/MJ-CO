@@ -13,7 +13,7 @@
 - **Funcionalidad privada**
 
   - Ver carrito de compra.
-  - Agregar productos al carrito.
+  - Agregar items al carrito de compra.
   - Pagar compra.
   - Historial de compra.
   - Realizar seguimiento del pedido.
