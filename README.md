@@ -9,7 +9,6 @@
   - LogIn.
   - Preguntas frecuentes.
   - Atención al cliente.
-  - prueba de edicion
   
 - **Funcionalidad privada**
 
