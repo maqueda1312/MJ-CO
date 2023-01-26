@@ -33,3 +33,5 @@
   - Dispondrá de un servicio que mande e-mails después de realizar una compra con la confirmación del pedido y la factura del mismo.
 
 - **Prueba de commit y push desde vsc**
+
+- **Prueba de pull desde git**
