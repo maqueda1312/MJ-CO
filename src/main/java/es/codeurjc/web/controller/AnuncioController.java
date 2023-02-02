@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import es.codeurjc.web.model.Producto;
+
 @Controller
 public class AnuncioController {
 
@@ -19,7 +21,7 @@ public class AnuncioController {
 		model.addAttribute("asunto", asunto);
 		model.addAttribute("comentario", comentario);
 
-		model.addAttribute("product", prueba);
+		model.addAttribute("producto", prueba);
 
 		return "anuncio";
 	}
