@@ -1,7 +1,7 @@
 package es.codeurjc.web.model;
 
 import java.util.List;
-
+/*
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,12 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity(name = "UserTable")
-
+*/
 public class Usuario {
-
+/*
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	
+*/
 	private int id;
 	private String correo;
 	private String nombre;
