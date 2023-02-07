@@ -1,6 +1,8 @@
 package es.codeurjc.web.model;
 
+//@Entity
 public class Producto{
+	
     private String nombre;
     private float precio;
     private String descripcion;
@@ -16,7 +18,6 @@ public class Producto{
 
 
     public String getNombre() {
-        String nombre = "PC 1 DE LA PRACTICA";
         return nombre;
     }
 
@@ -25,7 +26,6 @@ public class Producto{
     }
 
     public float getPrecio() {
-        int precio = 100;
         return precio;
     }
 
@@ -34,14 +34,13 @@ public class Producto{
     }
 
     public String getDescripcion() {
-        String descripcion = "Prueba de descripcion del producto";
         return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
+    
     @Override
     public String toString() {
         return "Productos{" + "nombre= " + nombre + ", precio=" + precio + ", descripcion=" + descripcion + '}';
