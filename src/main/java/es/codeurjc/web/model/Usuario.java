@@ -1,6 +1,5 @@
 package es.codeurjc.web.model;
 
-import java.util.List;
 /*
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -8,32 +7,36 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+*/
 
-@Entity(name = "UserTable")
-*/
+//@Entity
+
 public class Usuario {
-/*
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-*/
+
+	//@Id
+	//@GeneratedValue(strategy = GenerationType.AUTO)
+
 	private int id;
-	private String correo;
+	private String mail;
 	private String nombre;
 	private String apellidos;
 	private String direccion;
+	private String contrasena;
 
-	public Usuario(String n, String a, String c, String d) {
+	public Usuario(String n, String a, String m, String d, String c) {
 		this.nombre = n;
 		this.apellidos = a;
-		this.correo = c;
+		this.mail = m;
 		this.direccion = d;
+		this.contrasena = c;
 		
 	}
-	public Usuario(String n, String a, String c, String d,int id) {
+	public Usuario(String n, String a, String m, String d, String c,int id) {
 		this.nombre = n;
 		this.apellidos = a;
-		this.correo = c;
+		this.mail = m;
 		this.direccion = d;
+		this.contrasena = c;
 		this.id=id;
 	}
 	public Usuario() {
@@ -66,11 +69,11 @@ public class Usuario {
 	}
 
 	public String getCorreo() {
-		return correo;
+		return mail;
 	}
 
 	public void setCorreo(String correo) {
-		this.correo = correo;
+		this.mail = mail;
 	}
 
 	public String getDireccion() {
@@ -81,5 +84,12 @@ public class Usuario {
 		this.direccion = direccion;
 	}
 
+	public String getContrasena() {
+		return contrasena;
+	}
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
 
 }
