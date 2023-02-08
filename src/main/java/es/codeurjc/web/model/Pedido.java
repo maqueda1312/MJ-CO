@@ -1,5 +1,6 @@
 package es.codeurjc.web.model;
 
+//@Entity
 public class Pedido {
 
     //@Id
