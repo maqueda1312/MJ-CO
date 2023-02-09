@@ -1,22 +1,22 @@
 package es.codeurjc.web.model;
 
-/*
+import java.util.List;
+
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-*/
 
-//@Entity
 
+@Entity(name = "UserTable")
 public class Usuario {
 
-	//@Id
-	//@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 
-	private int id;
+	private Long id;
 	private String mail;
 	private String nombre;
 	private String apellidos;
