@@ -3,17 +3,27 @@ package es.codeurjc.web.model;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
+
+@Entity
 public class CarritodeCompra {
     
-    //@Id
-	//@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	//@OneToOne
+	@OneToOne
 	private Usuario usuario;
 	
-	//@OneToMany
+	@OneToMany
 	private  List<Producto> listaProductos; 
 
 
