@@ -17,7 +17,7 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
 	private Long id;
-	private String mail;
+	private static String mail;
 	private String nombre;
 	private String apellidos;
 	private String direccion;
@@ -68,7 +68,7 @@ public class Usuario {
 		this.apellidos = apellidos;
 	}
 
-	public String getMail() {
+	public static String getMail() {
 		return mail;
 	}
 
