@@ -31,7 +31,7 @@ public class Usuario {
 		this.contrasena = c;
 		
 	}
-	public Usuario(String n, String a, String m, String d, String c,int id) {
+	public Usuario(String n, String a, String m, String d, String c,long id) {
 		this.nombre = n;
 		this.apellidos = a;
 		this.mail = m;
@@ -43,11 +43,11 @@ public class Usuario {
 
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -68,11 +68,11 @@ public class Usuario {
 		this.apellidos = apellidos;
 	}
 
-	public String getCorreo() {
+	public String getMail() {
 		return mail;
 	}
 
-	public void setCorreo(String correo) {
+	public void setMail(String mail) {
 		this.mail = mail;
 	}
 
