@@ -33,10 +33,9 @@ public class PrincipalController {
 
     @GetMapping("/")
     public String mostrarProductos(Model model) {
+        System.out.println("PRUEBAAAAAAAAAAA");
 
         model.addAttribute("productos", productoService.findAll());
-        
-
         return "index";
     }
 
