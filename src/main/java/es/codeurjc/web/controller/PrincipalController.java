@@ -3,6 +3,7 @@ package es.codeurjc.web.controller;
 import es.codeurjc.web.model.Producto;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,17 +17,27 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+import javax.annotation.PostConstruct;
+
+@Controller
 public class PrincipalController {
 
     @Autowired
     private ProductoService productoService;
 
+   @PostConstruct
+    public void init(){
+        System.out.println("guardandooooo");
+        productoService.save(new Producto ("prueba", 35.00, "primera prueba"));
+    }
+
     @GetMapping("/")
     public String mostrarProductos(Model model) {
 
         model.addAttribute("productos", productoService.findAll());
+        
 
-        return "productos";
+        return "index";
     }
 
     @GetMapping("/books/{id}")
