@@ -1,3 +1,4 @@
+<!--
 <html>
 <body>
 
@@ -29,3 +30,16 @@
 </body>
 
 </html>
+-->
+
+{{>header}}
+
+<h2>Productos</h2>
+<ul class="productos">
+	{{#productos}}
+	<li><a href="/productos/{{id}}">{{nombre}}</a></li>
+	{{/productos}}
+</ul>
+
+
+{{>footer}}
