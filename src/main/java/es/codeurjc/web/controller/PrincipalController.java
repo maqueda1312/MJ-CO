@@ -36,12 +36,13 @@ public class PrincipalController {
         System.out.println("PRUEBAAAAAAAAAAA");
 
         model.addAttribute("productos", productoService.findAll());
+        
         return "index";
     }
 
     @GetMapping("/producto/{id}")
     public String mostrarProducto(Model model, @PathVariable long id) {
-
+        
         Optional<Producto> producto = productoService.findById(id);
         if (producto.isPresent()) {
             model.addAttribute("producto", producto.get());
