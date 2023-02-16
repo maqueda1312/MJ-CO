@@ -46,7 +46,7 @@ public class PrincipalController {
         Optional<Producto> producto = productoService.findById(id);
         if (producto.isPresent()) {
             model.addAttribute("producto", producto.get());
-            return "detalle";
+            return "producto";
         } else {
             return "index";
         }
