@@ -28,7 +28,7 @@ public class PrincipalController {
    @PostConstruct
     public void init(){
         System.out.println("guardandooooo");
-        productoService.save(new Producto ("prueba", 35.00, "primera prueba"));
+        productoService.save(new Producto ("PRODUCTO 1", 35.00, "primera prueba"));
     }
 
     @GetMapping("/")
@@ -40,15 +40,15 @@ public class PrincipalController {
         return "index";
     }
 
-    @GetMapping("/books/{id}")
+    @GetMapping("/producto/{id}")
     public String mostrarProducto(Model model, @PathVariable long id) {
 
         Optional<Producto> producto = productoService.findById(id);
         if (producto.isPresent()) {
             model.addAttribute("producto", producto.get());
-            return "producto";
+            return "detalle";
         } else {
-            return "productos";
+            return "index";
         }
 
     }
