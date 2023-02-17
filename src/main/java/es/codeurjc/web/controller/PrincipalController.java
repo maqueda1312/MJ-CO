@@ -27,13 +27,13 @@ public class PrincipalController {
 
    @PostConstruct
     public void init(){
-        System.out.println("guardandooooo");
+        System.out.println("#######PRUEBA#########");
         productoService.save(new Producto ("PRODUCTO 1", 35.00, "primera prueba"));
     }
 
     @GetMapping("/")
     public String mostrarProductos(Model model) {
-        System.out.println("PRUEBAAAAAAAAAAA");
+        System.out.println("#######PRUEBA#########");
 
         model.addAttribute("productos", productoService.findAll());
         
