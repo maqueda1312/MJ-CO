@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
+
 @Entity(name = "UserTable")
 public class Usuario {
 
@@ -17,58 +18,32 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
 	private Long id;
-	private static String mail;
-	private String nombre;
-	private String apellidos;
-	private String direccion;
-	private String contrasena;
-
-	public Usuario(String n, String a, String m, String d, String c) {
-		this.nombre = n;
-		this.apellidos = a;
-		this.mail = m;
-		this.direccion = d;
-		this.contrasena = c;
-		
-	}
-	public Usuario(String n, String a, String m, String d, String c,long id) {
-		this.nombre = n;
-		this.apellidos = a;
-		this.mail = m;
-		this.direccion = d;
-		this.contrasena = c;
-		this.id=id;
-	}
-	public Usuario() {
-
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
+	private String name;
+	private String mail;
+	private String encodedPassword;
 	
-	public String getNombre() {
-		return nombre;
+	@ElementCollection(fetch=FetchType.EAGER)
+	private List<String> roles;
+
+	public Usuario() {
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public Usuario(String name, String password, String mail, String... roles) {
+		this.name = name;
+		this.mail=mail;
+		this.encodedPassword = encodedPassword;
+		this.roles = List.of(roles);
 	}
 
-	public String getApellidos() {
-		return apellidos;
+	public String getName() {
+		return name;
 	}
 
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public static String getMail() {
+	public String getMail() {
 		return mail;
 	}
 
@@ -76,20 +51,20 @@ public class Usuario {
 		this.mail = mail;
 	}
 
-	public String getDireccion() {
-		return direccion;
+	public String getEncodedPassword() {
+		return encodedPassword;
 	}
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
+	public void setEncodedPassword(String encodedPassword) {
+		this.encodedPassword = encodedPassword;
 	}
 
-	public String getContrasena() {
-		return contrasena;
+	public List<String> getRoles() {
+		return roles;
 	}
 
-	public void setContrasena(String contrasena) {
-		this.contrasena = contrasena;
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
 	}
 
 }
