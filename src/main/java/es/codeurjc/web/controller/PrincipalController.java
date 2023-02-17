@@ -27,21 +27,25 @@ public class PrincipalController {
 
    @PostConstruct
     public void init(){
-        System.out.println("#######PRUEBA#########");
+        System.out.println("#######PRUEBA_1#########");
         productoService.save(new Producto ("PRODUCTO 1", 35.00, "primera prueba"));
     }
 
     @GetMapping("/")
     public String mostrarProductos(Model model) {
-        System.out.println("#######PRUEBA#########");
+        System.out.println("#######PRUEBA_2#########");
 
         model.addAttribute("productos", productoService.findAll());
         
+        System.out.println("#######PRUEBA_3#########");
+
         return "index";
     }
 
     @GetMapping("/producto/{id}")
     public String mostrarProducto(Model model, @PathVariable long id) {
+
+        System.out.println("#######PRUEBA_4#########");
         
         Optional<Producto> producto = productoService.findById(id);
         if (producto.isPresent()) {
