@@ -1,6 +1,9 @@
 package es.codeurjc.web.controller;
 
 import es.codeurjc.web.model.Producto;
+import es.codeurjc.web.model.Usuario;
+import es.codeurjc.web.repository.UsuarioRepository;
+
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +28,9 @@ public class PrincipalController {
     @Autowired
     private ProductoService productoService;
 
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
    @PostConstruct
     public void init(){
         System.out.println("#######PRUEBA_1#########");
@@ -33,15 +39,18 @@ public class PrincipalController {
         productoService.save(new Producto ("Placa Base ", 150.00, "Placa Base Asus"));
         productoService.save(new Producto ("Teclado Mecanico", 350.00, "Teclado Mecanico gamming"));
         productoService.save(new Producto ("Pantalla LG 4K", 270.00, "Pantalla curva LG 27' 4K UHD"));
+        
+        //creacion de usuario de prueba
+        usuarioRepository.save(new Usuario("USU1", "CORREO1", "pass", "admin"));
     }
 
     @GetMapping("/")
     public String mostrarProductos(Model model) {
-        System.out.println("#######PRUEBA_2#########");
+        //System.out.println("#######PRUEBA_2#########");
 
         model.addAttribute("productos", productoService.findAll());
-        
-        System.out.println("#######PRUEBA_3#########");
+
+       // System.out.println("#######PRUEBA_3#########");
 
         return "index";
     }
@@ -49,7 +58,7 @@ public class PrincipalController {
     @GetMapping("/producto/{id}")
     public String mostrarProducto(Model model, @PathVariable long id) {
 
-        System.out.println("#######PRUEBA_4#########");
+      //  System.out.println("#######PRUEBA_4#########");
         
         Optional<Producto> producto = productoService.findById(id);
         if (producto.isPresent()) {

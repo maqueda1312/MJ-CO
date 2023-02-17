@@ -28,9 +28,9 @@ public class Usuario {
 	public Usuario() {
 	}
 
-	public Usuario(String name, String password, String mail, String... roles) {
+	public Usuario(String name, String mail, String encodedPassword, String... roles) {
 		this.name = name;
-		this.mail=mail;
+		this.mail = mail;
 		this.encodedPassword = encodedPassword;
 		this.roles = List.of(roles);
 	}
