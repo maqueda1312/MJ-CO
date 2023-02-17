@@ -33,7 +33,7 @@ public class PrincipalController {
 
    @PostConstruct
     public void init(){
-        System.out.println("#######PRUEBA_1#########");
+        //System.out.println("#######PRUEBA_1#########");
         productoService.save(new Producto ("PRODUCTO 1", 35.00, "primera prueba"));
         productoService.save(new Producto ("RTX 4090 Founders Edition", 2000.00, "Tarjeta grafica NVIDIA"));
         productoService.save(new Producto ("Placa Base ", 150.00, "Placa Base Asus"));
@@ -42,6 +42,7 @@ public class PrincipalController {
         
         //creacion de usuario de prueba
         usuarioRepository.save(new Usuario("USU1", "CORREO1", "pass", "admin"));
+        usuarioRepository.save(new Usuario("USU2", "CORREO2", "pass", "user"));
     }
 
     @GetMapping("/")
