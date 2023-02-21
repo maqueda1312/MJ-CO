@@ -31,13 +31,14 @@ public class CarritodeCompra {
 		
 	}
 
-	public CarritodeCompra(Producto p, Usuario u){
+	
+	public CarritodeCompra(Usuario u){
 
 		this.listaProductos = new ArrayList<>();
-		this.listaProductos.add(p);
 		this.usuario = u;
 
 	}
+
 
 	public  List<Producto> getListaProductos() {
 		return listaProductos;
@@ -48,6 +49,7 @@ public class CarritodeCompra {
 		this.listaProductos = listaProductos;
 	}
 	
+
 	@Override
 	public String toString() {
 		return "CarritoCompra" + listaProductos;

@@ -1,5 +1,6 @@
 package es.codeurjc.web.controller;
 
+import es.codeurjc.web.model.CarritodeCompra;
 import es.codeurjc.web.model.Producto;
 import es.codeurjc.web.model.Usuario;
 import es.codeurjc.web.repository.UsuarioRepository;
@@ -11,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import es.codeurjc.web.service.CarritoService;
 import es.codeurjc.web.service.ProductoService;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,6 +34,9 @@ public class PrincipalController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @Autowired
+    private CarritoService carritoService;
+
    @PostConstruct
     public void init(){
         //System.out.println("#######PRUEBA_1#########");
@@ -41,8 +47,14 @@ public class PrincipalController {
         productoService.save(new Producto ("Pantalla LG 4K", 270.00, "Pantalla curva LG 27' 4K UHD"));
         
         //creacion de usuario de prueba
-        usuarioRepository.save(new Usuario("USU1", "CORREO1", "pass", "admin"));
+        Usuario  admin = usuarioRepository.save(new Usuario("USU1", "CORREO1", "pass", "admin"));
         usuarioRepository.save(new Usuario("USU2", "CORREO2", "pass", "user"));
+
+        CarritodeCompra carritoGeneral = new CarritodeCompra(admin);
+        carritoService.save(carritoGeneral);
+
+
+
     }
 
     @GetMapping("/")
