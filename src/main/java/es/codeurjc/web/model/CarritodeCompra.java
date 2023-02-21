@@ -30,27 +30,13 @@ public class CarritodeCompra {
 	public CarritodeCompra() {
 		
 	}
-	//POR DEFECTO CUANDO ENCIENDES LA PAGINA
-	public CarritodeCompra(Usuario u){
-		this.usuario=u;
+
+	public CarritodeCompra(Producto p){
+
 		this.listaProductos = new ArrayList<>();
+		this.listaProductos.add(p);
+
 	}
-	//FILTRADO POR USUARIO METIENDO UN PRODUCTO EN LA LISTA DEL CARRITO
-	public CarritodeCompra(Usuario u,Producto x){
-		this.usuario=u;
-		this.listaProductos = new ArrayList<>();
-		this.listaProductos.add(x);
-	}
-	
-	
-	
-	public Usuario getUsuario() {
-		return usuario;
-	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-	
 
 	public  List<Producto> getListaProductos() {
 		return listaProductos;
@@ -63,7 +49,7 @@ public class CarritodeCompra {
 	
 	@Override
 	public String toString() {
-		return "CarritoCompra [Usuario=" + usuario + ", Producto=" + listaProductos + "]";
+		return "CarritoCompra" + listaProductos;
 	}
 
 	
