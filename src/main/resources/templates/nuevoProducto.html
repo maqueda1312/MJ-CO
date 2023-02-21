@@ -1,0 +1,25 @@
+<!-- formulario de nuevos productos-->
+
+
+<form action="/nuevoProducto" method="post">
+  <h2>Nuevo Producto</h2>
+  <div>
+    <label>Nombre: </label>
+    <input name="nombre" placeholder="nombre"/>
+  </div>
+  <div>
+    <label>Precio: </label>
+    <input type="number" name="precio" placeholder="precio"></textarea>
+  </div>
+
+  <div>
+    <label>Descripcion: </label>
+    <textarea name="descripcion" placeholder="descripcion"></textarea>
+  </div>
+
+  <p>
+    <button onclick="location.href='/'; return false;">Cancel</button>
+    <input type="submit" value="Save"/>
+  </p>
+  </form>
+  
