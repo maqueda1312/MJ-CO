@@ -18,7 +18,7 @@ public class CarritodeCompra {
     
     @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private long id;
 	
 	@OneToOne
 	private Usuario usuario;
@@ -31,10 +31,11 @@ public class CarritodeCompra {
 		
 	}
 
-	public CarritodeCompra(Producto p){
+	public CarritodeCompra(Producto p, Usuario u){
 
 		this.listaProductos = new ArrayList<>();
 		this.listaProductos.add(p);
+		this.usuario = u;
 
 	}
 
