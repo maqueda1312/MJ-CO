@@ -73,7 +73,7 @@ public class Producto{
     }
 
     public String pedido() {
-        return nombre + ": " + descripcion + precio + "€";
+        return nombre + ": " + descripcion + " " + precio + "€";
     }
 
 }
