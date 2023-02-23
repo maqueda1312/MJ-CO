@@ -20,24 +20,20 @@ public class CarritodeCompra {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@OneToOne
+	@OneToOne (mappedBy="carrito")
 	private Usuario usuario;
 	
 	@OneToMany
 	private  List<Producto> listaProductos; 
 
 
-	public CarritodeCompra() {
-		
-	}
+	
 
 	
-	public CarritodeCompra(Usuario u){
+	public CarritodeCompra(){
 
 		this.listaProductos = new ArrayList<>();
-		this.usuario = u;
-
-	}
+			}
 
 
 	public  List<Producto> getListaProductos() {

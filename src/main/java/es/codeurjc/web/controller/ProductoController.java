@@ -60,10 +60,11 @@ public class ProductoController {
 	}
 
 
-    @PostMapping("/productoCarrito/{id}")
+    @GetMapping("/productoCarrito/{id}")
 	public String agregarCarrito(Model model, @PathVariable long id) throws IOException {
 
         Producto producto = productoService.findById(id).get();
+		model.addAttribute("producto", producto);
 
         //Desde aqui, se fuerza el carrito que queremos en este caso carritoGeneral
 
@@ -75,7 +76,7 @@ public class ProductoController {
 
 		carritoService.save(carrito);
 
-		return "productoCarrito";
+		return "productoAgregadoCarrito";
 	}
 
 

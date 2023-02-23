@@ -47,15 +47,12 @@ public class PrincipalController {
         productoService.save(new Producto ("Pantalla LG 4K", 270.00, "Pantalla curva LG 27' 4K UHD"));
         
         //creacion de usuario de prueba
-        Usuario  admin = usuarioRepository.save(new Usuario("USU1", "CORREO1", "pass", "admin"));
-        usuarioRepository.save(new Usuario("USU2", "CORREO2", "pass", "user"));
+       Usuario admin = new Usuario("USU1", "CORREO1", "pass", "admin");
+       admin.setCarrito(new CarritodeCompra()); 
+       usuarioRepository.save(admin);
+       usuarioRepository.save(new Usuario("USU2", "CORREO2", "pass", "user"));
 
-        CarritodeCompra carritoGeneral = new CarritodeCompra(admin);
-        carritoService.save(carritoGeneral);
-
-
-
-    }
+      }
 
     @GetMapping("/")
     public String mostrarProductos(Model model) {

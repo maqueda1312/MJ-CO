@@ -2,6 +2,7 @@ package es.codeurjc.web.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,7 +27,7 @@ public class Usuario {
 	private String mail;
 	private String encodedPassword;
 	
-	@OneToOne
+	@OneToOne (cascade=CascadeType.ALL)
 	private CarritodeCompra carrito;
 
 	@ElementCollection(fetch=FetchType.EAGER)
