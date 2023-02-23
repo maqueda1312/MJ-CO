@@ -1,5 +1,6 @@
 package es.codeurjc.web.controller;
 
+import java.io.IOException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +62,24 @@ public class CarritoController {
 		
 	}
 
+	@GetMapping("/productoCarrito/{id}")
+	public String agregarCarrito(Model model, @PathVariable long id) throws IOException {
 
+		Producto producto = productoService.findById(id).get();
+		model.addAttribute("producto", producto);
+
+		//Desde aqui, se fuerza el carrito que queremos en este caso carritoGeneral
+
+		Usuario admin = usuarioRepository.findByName("USU1");
+
+		CarritodeCompra carrito = admin.getCarrito();
+
+		carrito.getListaProductos().add(producto);
+
+		carritoService.save(carrito);
+
+		return "productoAgregadoCarrito";
+	}
 
 
 }
