@@ -1,5 +1,6 @@
 package es.codeurjc.web.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,8 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -29,12 +28,14 @@ public class Usuario {
 	private String name;
 	private String mail;
 	private String encodedPassword;
+
 	
 	@OneToOne (cascade=CascadeType.ALL)
 	private CarritodeCompra carrito;
 
-	//@OneToMany (mappedBy="usuario")
-	//private Pedido pedido;
+	@OneToMany (mappedBy="usuario", cascade=CascadeType.ALL)
+	private List <Pedido> pedidos = new ArrayList<>();
+
 
 	@ElementCollection(fetch=FetchType.EAGER)
 	private List<String> roles;
@@ -88,7 +89,21 @@ public class Usuario {
 	public void setCarrito(CarritodeCompra carrito) {
 		this.carrito = carrito;
 	}
+	
+	public void addPedido(Pedido pedido){
+		pedido.setUsuario(this);
+		this.pedidos.add(pedido);
+	}
 
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+
+	//faltaria meter el borrarpedido
 	
 
 }

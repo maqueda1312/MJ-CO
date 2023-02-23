@@ -51,7 +51,6 @@ public class PrincipalController {
        admin.setCarrito(new CarritodeCompra()); 
        usuarioRepository.save(admin);
        usuarioRepository.save(new Usuario("USU2", "CORREO2", "pass", "user"));
-
       }
 
     @GetMapping("/")

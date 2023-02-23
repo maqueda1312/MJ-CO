@@ -8,11 +8,11 @@
 	<p>Detalles del pedido:</p>
 
 	<ul>
-        {{#carrito.listaProductos}}
+        {{#pedido.listaProductos}}
             <li>{{nombre}} //\\ {{descripcion}} //\\ {{precio}} Euros</li>
-        {{/carrito.listaProductos}}
+        {{/pedido.listaProductos}}
     </ul>
-    <p>Precio total del pedido:  €</p>
+    <p>Precio total del pedido:  {{pedido.precio}}€</p>
 
 
     <button onclick="location.href='/'">Inicio</button>

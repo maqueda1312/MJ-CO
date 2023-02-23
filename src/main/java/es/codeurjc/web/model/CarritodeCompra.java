@@ -24,14 +24,11 @@ public class CarritodeCompra {
 	private Usuario usuario;
 	
 	@OneToMany
-	private  List<Producto> listaProductos; 
+	private  List<Producto> listaProductos = new ArrayList<>(); 
 
 
 
-	public CarritodeCompra(){
-
-		this.listaProductos = new ArrayList<>();
-			}
+	public CarritodeCompra(){}
 
 
 	public  List<Producto> getListaProductos() {
@@ -57,6 +54,16 @@ public class CarritodeCompra {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }
