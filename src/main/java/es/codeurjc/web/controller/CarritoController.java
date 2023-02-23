@@ -81,7 +81,19 @@ public class CarritoController {
 		return "productoAgregadoCarrito";
 	}
 
-	
+	@GetMapping("/pedido")
+	public String obtenerPedido(Model model) throws IOException {
 
+		model.addAttribute("carrito", carritoService.findAll().get(0));
+		model.addAttribute("producto", productoService.findAll());
+
+		// deberia realizar un nuevo pedido
+		// mover productos de carrito a pedido (eliminando los productos del carrito)
+		//por lo que hay que recuperar el carrito, elimnar sus elementos y volver a gaurdar el carrito 
+		//calcular precio total del pedido
+		//se guarda el pedido mostrando un detalle del pedido.
+		return "pedido";
+
+	}
 
 }

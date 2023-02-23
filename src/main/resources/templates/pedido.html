@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 style="color: #555a99;">Este es tu pedido actual con nosotros</h1>
+
+
+	<p>Detalles del pedido:</p>
+
+	<ul>
+        {{#carrito.listaProductos}}
+            <li>{{nombre}} //\\ {{descripcion}} //\\ {{precio}} Euros</li>
+        {{/carrito.listaProductos}}
+    </ul>
+    <p>Precio total del pedido:  €</p>
+
+
+    <button onclick="location.href='/'">Inicio</button>
+   

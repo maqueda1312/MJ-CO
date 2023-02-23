@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Pedido {
@@ -24,6 +27,9 @@ public class Pedido {
     int telefono;
     int anio;
     double precio;
+
+    //@ManyToOne
+    //private Usuario usuario;
 
     public Pedido() {
 

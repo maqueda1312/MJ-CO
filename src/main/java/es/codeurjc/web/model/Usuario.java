@@ -9,6 +9,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 
@@ -29,6 +32,9 @@ public class Usuario {
 	
 	@OneToOne (cascade=CascadeType.ALL)
 	private CarritodeCompra carrito;
+
+	//@OneToMany (mappedBy="usuario")
+	//private Pedido pedido;
 
 	@ElementCollection(fetch=FetchType.EAGER)
 	private List<String> roles;

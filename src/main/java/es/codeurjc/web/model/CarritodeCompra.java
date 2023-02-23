@@ -27,6 +27,7 @@ public class CarritodeCompra {
 	private  List<Producto> listaProductos; 
 
 
+
 	public CarritodeCompra(){
 
 		this.listaProductos = new ArrayList<>();
@@ -58,5 +59,4 @@ public class CarritodeCompra {
 		this.id = id;
 	}
 
-	
 }
