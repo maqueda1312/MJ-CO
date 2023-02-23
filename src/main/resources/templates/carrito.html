@@ -9,9 +9,9 @@
 	<p>productos en carrito:</p>
 
 	<ul>
-        {{#carrito}}
-            <li>{{listaProductos}}</li>
-        {{/carrito}}
+        {{#carrito.listaProductos}}
+            <li>{{nombre}} {{precio}} Euros</li>
+        {{/carrito.listaProductos}}
     </ul>
 
 

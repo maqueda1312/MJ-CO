@@ -42,7 +42,7 @@ public class CarritoController {
 
     @GetMapping("/carrito/{id}")
 	public String verCarrito(Model model, @PathVariable long id) {
-        model.addAttribute("carrito", carritoService.findAll());
+        model.addAttribute("carrito", carritoService.findAll().get(0));
 		return "carrito";
 	}
 
@@ -80,6 +80,8 @@ public class CarritoController {
 
 		return "productoAgregadoCarrito";
 	}
+
+	
 
 
 }

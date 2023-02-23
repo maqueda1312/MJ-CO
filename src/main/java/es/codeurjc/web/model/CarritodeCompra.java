@@ -27,9 +27,6 @@ public class CarritodeCompra {
 	private  List<Producto> listaProductos; 
 
 
-	
-
-	
 	public CarritodeCompra(){
 
 		this.listaProductos = new ArrayList<>();
@@ -48,7 +45,7 @@ public class CarritodeCompra {
 
 	@Override
 	public String toString() {
-		return "CarritoCompra" + listaProductos;
+		return "CarritoCompra" + listaProductos + "\n";
 	}
 
 
