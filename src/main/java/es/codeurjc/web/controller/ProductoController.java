@@ -60,7 +60,7 @@ public class ProductoController {
 	}
 
 
-    @PostMapping("/agregarCarrito/{id}")
+    @PostMapping("/productoCarrito/{id}")
 	public String agregarCarrito(Model model, @PathVariable long id) throws IOException {
 
         Producto producto = productoService.findById(id).get();
@@ -75,7 +75,7 @@ public class ProductoController {
 
 		carritoService.save(carrito);
 
-		return "redirect:/carrito/" + carrito.getId();
+		return "productoCarrito";
 	}
 
 
