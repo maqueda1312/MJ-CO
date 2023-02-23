@@ -66,6 +66,16 @@ public class Producto{
     public String toString() {
         return "Producto [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precio=" + precio + "]";
     }
+
+
+    public String carrito() {
+        return nombre +"..............."+ precio + "€";
+    }
+
+    public String pedido() {
+        return nombre + ": " + descripcion + precio + "€";
+    }
+
 }
 
 
