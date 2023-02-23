@@ -8,11 +8,15 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
+	
 
 @Entity(name = "UserTable")
 public class Usuario {
+
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,6 +26,9 @@ public class Usuario {
 	private String mail;
 	private String encodedPassword;
 	
+	@OneToOne
+	private CarritodeCompra carrito;
+
 	@ElementCollection(fetch=FetchType.EAGER)
 	private List<String> roles;
 
@@ -66,5 +73,15 @@ public class Usuario {
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
 	}
+
+	public CarritodeCompra getCarrito() {
+		return carrito;
+	}
+
+	public void setCarrito(CarritodeCompra carrito) {
+		this.carrito = carrito;
+	}
+
+	
 
 }

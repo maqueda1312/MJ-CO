@@ -1,1 +1,17 @@
 <!-- ver pedido y comprar-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 style="color: #4485b8;">Bienvenido a tu carrito de informatica preferida</h1>
+
+
+	<p>productos en carrito:</p>
+
+	<ul>
+        {{#carrito}}
+            <li>{{listaProductos}}</li>
+        {{/carrito}}
+    </ul>
+
+    <a href="/">Volver</a>

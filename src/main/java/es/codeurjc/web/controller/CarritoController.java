@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,6 +16,7 @@ import es.codeurjc.web.model.Usuario;
 import es.codeurjc.web.repository.CarritoRepository;
 import es.codeurjc.web.repository.ProductoRepository;
 import es.codeurjc.web.repository.UsuarioRepository;
+import es.codeurjc.web.service.CarritoService;
 import es.codeurjc.web.service.ProductoService;
 
 @Controller
@@ -24,6 +26,8 @@ public class CarritoController {
    
     @Autowired
 	private ProductoService productoService;
+    @Autowired
+	private CarritoService carritoService;
 
 	@Autowired
 	private CarritoRepository carritoRepository;	
@@ -35,9 +39,9 @@ public class CarritoController {
 	Usuario usuario;
 	Optional<Producto> productoaux;
 
-    @GetMapping("/carrito")
-	public String verCarrito(Model model) {
-		model.addAttribute("producto", carritoRepository.findAll());
+    @GetMapping("/carrito/{id}")
+	public String verCarrito(Model model, @PathVariable long id) {
+        model.addAttribute("carrito", carritoService.findAll());
 		return "carrito";
 	}
 

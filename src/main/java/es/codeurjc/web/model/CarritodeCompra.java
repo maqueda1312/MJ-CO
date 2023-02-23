@@ -55,5 +55,15 @@ public class CarritodeCompra {
 		return "CarritoCompra" + listaProductos;
 	}
 
+
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	
 }

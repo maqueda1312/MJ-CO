@@ -1,28 +1,34 @@
 package es.codeurjc.web.controller;
 
-import org.hibernate.engine.jdbc.BlobProxy;
+import java.io.IOException;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
+import es.codeurjc.web.model.CarritodeCompra;
 import es.codeurjc.web.model.Producto;
+import es.codeurjc.web.model.Usuario;
+import es.codeurjc.web.repository.UsuarioRepository;
+import es.codeurjc.web.service.CarritoService;
 import es.codeurjc.web.service.ProductoService;
-
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class ProductoController {
 
     @Autowired
     private ProductoService productoService;
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private CarritoService carritoService;
+
 
     @GetMapping("/nuevoProducto")
 	public String newBook(Model model) {
@@ -52,4 +58,25 @@ public class ProductoController {
 		}
 		return "borrarProducto";
 	}
+
+
+    @PostMapping("/agregarCarrito/{id}")
+	public String agregarCarrito(Model model, @PathVariable long id) throws IOException {
+
+        Producto producto = productoService.findById(id).get();
+
+        //Desde aqui, se fuerza el carrito que queremos en este caso carritoGeneral
+
+        Usuario admin = usuarioRepository.findByName("USU1");
+
+        CarritodeCompra carrito = admin.getCarrito();
+
+        carrito.getListaProductos().add(producto);
+
+		carritoService.save(carrito);
+
+		return "redirect:/carrito/" + carrito.getId();
+	}
+
+
 }
