@@ -93,21 +93,30 @@ public class CarritoController {
 	public String obtenerPedido(Model model) throws IOException {
 		// deberia realizar un nuevo pedido
 		Pedido pedido = new Pedido();
-
+		double suma=0;
 		// por lo que hay que recuperar el carrito y mover productos de carrito a pedido (eliminando los productos del carrito)
 		CarritodeCompra carrito = carritoService.findAll().get(0);
 		List <Producto> listaProductos = carrito.getListaProductos();
 		//pedido.setListaProductos(listaProductos);
 		for(Producto p:listaProductos){
+			
 			pedido.getListaProductos().add(p);
+			
+			pedido.suma+=p.getPrecio();
+			
+			
 		}
+		
+			
+		
+		
 
 		//elimnar sus elementos(vaciar el carrito) y volver a gaurdar el carrito 
 		List <Producto> listaVacia = new ArrayList<>();
 		carrito.setListaProductos(listaVacia);
 		carritoService.save(carrito);
 		//calcular precio total del pedido
-		pedido.setPrecio(1000); //calcularrr
+		//pedido.setPrecio(1000); //calcularrr
 
 		//pedido = pedidoRepository.save(pedido);
 		//se guarda el pedido mostrando un detalle del pedido.

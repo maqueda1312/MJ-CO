@@ -1,6 +1,7 @@
 package es.codeurjc.web.model;
+import es.codeurjc.web.service.*;
 
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,13 +12,19 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+
 @Entity
 public class Pedido {
 
+	
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private double precio;
+    public double suma;
+  
 
     @ManyToOne
     private Usuario usuario;
@@ -32,10 +39,13 @@ public class Pedido {
 
       public double getPrecio() {
         return precio;
+       
     }
 
     public void setPrecio(double precio) {
         this.precio = precio;
+        
+        
     }
 
     public void setListaProductos(List<Producto> listaProductos) {
@@ -63,7 +73,10 @@ public class Pedido {
     public List<Producto> getListaProductos() {
         return listaProductos;
     }
+  
+    public double getSuma() {
+    return suma;
+    }
+    
+    }
 
-
-
-}
