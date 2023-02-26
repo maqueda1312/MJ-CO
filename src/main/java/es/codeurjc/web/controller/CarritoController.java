@@ -54,10 +54,6 @@ public class CarritoController {
 		return "carrito";
 	}
 
-    @GetMapping("/agregarProductosCarrito")
-	public String agregarProductosCarrito(Model model) {
-		return "agregarProductosCarrito";
-	}
 
     @PostMapping("/anadirProducto")
 	public String anadirProducto(Model model, @RequestParam long Id) {
@@ -128,6 +124,18 @@ public class CarritoController {
 
 		return "pedido";
 
+	}
+    //****************hasta aqui funciona
+	@GetMapping("/vaciarCarrito")
+	public String vaciarCarrito(Model model) throws IOException {
+
+		CarritodeCompra carrito = carritoService.findAll().get(0);
+		List <Producto> listaVacia = new ArrayList<>();
+		carrito.setListaProductos(listaVacia);
+		carritoService.save(carrito);
+
+
+		return "vaciarCarrito";
 	}
 
 }
