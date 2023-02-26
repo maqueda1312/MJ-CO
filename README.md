@@ -30,4 +30,13 @@
   
 - **Servicio interno**:
 
-  - Dispondrá de un servicio que mande e-mails después de realizar una compra con la confirmación del pedido y la factura del mismo.
+  - Dispondrá de un servicio que mande e-mails después de realizar una compra con la confirmación del pedido y la factura del mismo.  
+
+- **Diagramas**:
+  - Diagrama de navegacion  
+   
+  ![image](https://user-images.githubusercontent.com/118890068/221432112-80ad0810-10d6-4306-8d93-78dc43f76e54.png)  
+  - UML  
+  
+  ![MJCOuml](https://user-images.githubusercontent.com/118890068/221434201-2383fefe-3f69-4f8b-957e-86d43b1da413.png)
+
