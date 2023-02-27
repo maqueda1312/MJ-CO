@@ -39,4 +39,35 @@
   - UML  
   
   ![MJCOuml](https://user-images.githubusercontent.com/118890068/221434201-2383fefe-3f69-4f8b-957e-86d43b1da413.png)
+  - E/R  
+  
+  ![image](https://user-images.githubusercontent.com/118890068/221560091-a7f3077e-e7c2-4dea-a546-a1a68e61b42c.png)  
+    
+- **Capturas de pantalla**:  
+  
+  - Página Principal:  
+  Es la primera pagina al iniciar la web, desde aqui se visualizan todos los productos, pudiendo entrar en ellos para ver sus detalles. Tambien se pueden ver los botones para acceber a la pagina del carrito, a la pagina de añadir un nuevo producto a la base de datos y el de preguntas frequentes.  
+    
+  ![image](https://user-images.githubusercontent.com/118890068/221561796-460ce483-5c4a-452f-b1aa-ecbd7056edaa.png)  
+  
+    - Página Producto:  
+  Es una página simple donde se pueden ver los detalles de cada producto, nombre precio y descripcion. Desde esta pagina tambien se puede agregar el producto al carrito o eliminarlo de la base de datos.
+    
+  ![image](https://user-images.githubusercontent.com/118890068/221562930-6729152d-8772-414a-a141-17088a2621f1.png)  
+  
+    - Página Agregar Producto:  
+  Pagina en la que podemos añadir producto a la base de datos, en ella veremos un formulario para introducir el nombre el precio y una breve descripcion.  
+    
+  ![image](https://user-images.githubusercontent.com/118890068/221563412-1c638c5e-9d27-437d-9a97-858ff5bf1809.png)  
+  
+  - Página Carrito:  
+  Pagina en la que podemos ver los productos que hemos añadido al carrito, podemos realizar el pedido o vaciar el carrito.  
+    
+  ![image](https://user-images.githubusercontent.com/118890068/221564246-3ead42ef-f233-44b1-b0ce-6fb23021cf9a.png)  
+    
+  - Página Pedido:  
+  Pagina en la que vemos el resumen de productos que hemos comprado asi como la cuantia total del pedido.  
+    
+  ![image](https://user-images.githubusercontent.com/118890068/221564508-fa1ed9d0-eac2-4df7-8b2b-224eadf4258c.png)
+
 
