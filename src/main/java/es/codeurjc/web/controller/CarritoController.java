@@ -99,14 +99,8 @@ public class CarritoController {
 			pedido.getListaProductos().add(p);
 			
 			pedido.suma+=p.getPrecio();
-			
-			
 		}
 		
-			
-		
-		
-
 		//elimnar sus elementos(vaciar el carrito) y volver a gaurdar el carrito 
 		List <Producto> listaVacia = new ArrayList<>();
 		carrito.setListaProductos(listaVacia);
