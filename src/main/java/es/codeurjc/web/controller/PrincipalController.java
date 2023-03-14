@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -56,6 +57,23 @@ public class PrincipalController {
        usuarioRepository.save(new Usuario("USU2", "CORREO2", "pass", "user"));
       }
 
+
+      @ModelAttribute
+      public void addAttributes(Model model, HttpServletRequest request) {
+  
+        Principal principal = request.getUserPrincipal();
+
+        if (principal != null) {
+  
+            model.addAttribute("admin", request.isUserInRole("ADMIN"));
+  
+        } else {
+            model.addAttribute("logged", false);
+        }
+      }
+
+
+
     @GetMapping("/")
     public String mostrarProductos(Model model) {
         //System.out.println("#######PRUEBA_2#########");
@@ -68,19 +86,11 @@ public class PrincipalController {
     }
 
     @GetMapping("/producto/{id}")
-    public String mostrarProducto(Model model, @PathVariable long id, HttpServletRequest request) {
+    public String mostrarProducto(Model model, @PathVariable long id) {
 
       //  System.out.println("#######PRUEBA_4#########");
         
-      Principal principal = request.getUserPrincipal();
 
-      if (principal != null) {
-
-          model.addAttribute("admin", request.isUserInRole("ADMIN"));
-
-      } else {
-          model.addAttribute("logged", false);
-      }
 
         Optional<Producto> producto = productoService.findById(id);
         if (producto.isPresent()) {

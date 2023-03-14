@@ -8,7 +8,7 @@
 {{/producto}}
 </ul>
 <!-- formulario de nuevos productos-->
-{{/ADMIN}} {{#ADMIN}}
+{{#ADMIN}}
 <button onclick="location.href='/borrarProducto/{{producto.id}}'">Remove</button>
 {{/ADMIN}}
 <button onclick="location.href='/productoCarrito/{{producto.id}}'">Añadir a Carrito</button>
