@@ -58,19 +58,30 @@ public class PrincipalController {
       }
 
 
-      @ModelAttribute
-      public void addAttributes(Model model, HttpServletRequest request) {
-  
+    @ModelAttribute
+    public void addAttributes(Model model, HttpServletRequest request) {
+
         Principal principal = request.getUserPrincipal();
 
         if (principal != null) {
-  
+
+            Optional <Usuario> optionalAdmin = usuarioRepository.findByName(principal.getName());
+            if (optionalAdmin.isPresent()){
+                Usuario admin = optionalAdmin.get();
+                CarritodeCompra carrito = admin.getCarrito();
+                model.addAttribute("idCarrito", carrito.getId());
+            }
+
+
+
             model.addAttribute("admin", request.isUserInRole("ADMIN"));
-  
+
         } else {
             model.addAttribute("logged", false);
         }
-      }
+
+
+   }
 
 
 
