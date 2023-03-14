@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
+
 import es.codeurjc.web.service.CarritoService;
 import es.codeurjc.web.service.ProductoService;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -65,10 +68,20 @@ public class PrincipalController {
     }
 
     @GetMapping("/producto/{id}")
-    public String mostrarProducto(Model model, @PathVariable long id) {
+    public String mostrarProducto(Model model, @PathVariable long id, HttpServletRequest request) {
 
       //  System.out.println("#######PRUEBA_4#########");
         
+      Principal principal = request.getUserPrincipal();
+
+      if (principal != null) {
+
+          model.addAttribute("admin", request.isUserInRole("ADMIN"));
+
+      } else {
+          model.addAttribute("logged", false);
+      }
+
         Optional<Producto> producto = productoService.findById(id);
         if (producto.isPresent()) {
             model.addAttribute("producto", producto.get());
@@ -77,6 +90,6 @@ public class PrincipalController {
             return "index";
         }
 
-    }
-
+       
+	}
 }

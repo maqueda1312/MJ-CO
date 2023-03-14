@@ -74,7 +74,7 @@ public class CarritoController {
 
 		//Desde aqui, se fuerza el carrito que queremos en este caso carritoGeneral
 
-		Usuario admin = usuarioRepository.findByName("USU1");
+		Optional <Usuario> admin = usuarioRepository.findByName("USU1");
 
 		CarritodeCompra carrito = admin.getCarrito();
 
