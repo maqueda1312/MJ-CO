@@ -1,7 +1,10 @@
 package es.codeurjc.web.controller;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -67,29 +70,46 @@ public class CarritoController {
 	}
 
 	@GetMapping("/productoCarrito/{id}")
-	public String agregarCarrito(Model model, @PathVariable long id) throws IOException {
+	public String agregarCarrito(Model model, @PathVariable long id, HttpServletRequest request) throws IOException {
+
+		Principal principal = request.getUserPrincipal();
+		
 
 		Producto producto = productoService.findById(id).get();
 		model.addAttribute("producto", producto);
 
 		//Desde aqui, se fuerza el carrito que queremos en este caso carritoGeneral
 
-		Optional <Usuario> admin = usuarioRepository.findByName("USU1");
+		Optional <Usuario> optionalAdmin = usuarioRepository.findByName(principal.getName());
+		if (optionalAdmin.isPresent()){
+			Usuario admin = optionalAdmin.get();
+			CarritodeCompra carrito = admin.getCarrito();
+			carrito.getListaProductos().add(producto);
 
-		CarritodeCompra carrito = admin.getCarrito();
+			carritoService.save(carrito);
+		}
 
-		carrito.getListaProductos().add(producto);
 
-		carritoService.save(carrito);
 
 		return "productoAgregadoCarrito";
 	}
 
 	@GetMapping("/pedido")
-	public String obtenerPedido(Model model) throws IOException {
+	public String obtenerPedido(Model model, HttpServletRequest request) throws IOException {
 		// deberia realizar un nuevo pedido
 		Pedido pedido = new Pedido();
 		double suma=0;
+
+		Principal principal = request.getUserPrincipal();
+
+      if (principal != null) {
+
+		model.addAttribute("logged", true);
+
+      } else {
+          model.addAttribute("logged", false);
+      }
+
 		// por lo que hay que recuperar el carrito y mover productos de carrito a pedido (eliminando los productos del carrito)
 		CarritodeCompra carrito = carritoService.findAll().get(0);
 		List <Producto> listaProductos = carrito.getListaProductos();

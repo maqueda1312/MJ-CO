@@ -14,7 +14,8 @@
         {{/carrito.listaProductos}}
     </ul>
 
-
+    {{#logged}}
     <button onclick="location.href='/pedido'">Realizar Compra</button>
+    {{/logged}}
     <button onclick="location.href='/vaciarCarrito'">Vaciar Carrito</button>
     <button onclick="location.href='/'">Inicio</button>
