@@ -11,7 +11,9 @@
             <li>{{nombre}} //\\ {{precio}} Euros</li>
         {{/carrito.listaProductos}}
     </ul>
-
+<p>&ensp;</p>
+<p>&ensp;</p>
+<form action="/pedido" method="post">
 <div>
     <label>Nombre: </label>
     <input name="nombre" placeholder="nombre" required/>
@@ -36,10 +38,11 @@
     <label>CP: </label>
     <input cp="calle" placeholder="Codigo postal" pattern="[0-9]{5}" required/>
 </div>
+    <p>&ensp;</p>
+    <input type="submit" value="Realizar Compra"/>
 
-    {{#logged}}
-    <button onclick="location.href='/pedido'">Realizar Compra</button>
-    {{/logged}}
+    <p>&ensp;</p>
+<form>
     <button onclick="location.href='/vaciarCarrito'">Vaciar Carrito</button>
     <button onclick="location.href='/'">Inicio</button>
 
