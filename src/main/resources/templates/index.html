@@ -19,6 +19,9 @@
 <button onclick="location.href='/carrito/'">VER CARRITO</button>
 {{/logged}}
 
+{{^logged}}
+<button onclick="location.href='/nuevoUsuario'">CREAR USUARIO</button>
+{{/logged}}
 <button onclick="location.href='/faq.html'">PREGUNTAS FRECUENTES</button>
 
 {{>footer}}

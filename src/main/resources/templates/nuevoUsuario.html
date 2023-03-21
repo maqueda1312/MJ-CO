@@ -1,0 +1,27 @@
+<!-- formulario de nuevos Usuarios-->
+
+
+<form action="/nuevoUsuario" method="post">
+    <h2>Nuevo Usuario</h2>
+    <div>
+      <label>Nombre: </label>
+      <input name="name" />
+    </div>
+    <h2></h2>
+    <div>
+      <label>Mail: </label>
+      <input name="mail" ></textarea>
+    </div>
+    <h2></h2>
+    <div>
+      <label>Contraseña: </label>
+      <input  type = "password"  name = "encodedPassword" ></textarea>
+    </div>
+    <h2></h2>
+    <p>
+      <button onclick="location.href='/'; return false;">Cancel</button>
+      <input type="submit" value="Save"/>
+    </p>
+    <input type="hidden" name="_csrf" value="{{token}}"/>
+    </form>
+ 

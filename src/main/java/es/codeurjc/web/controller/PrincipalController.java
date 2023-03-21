@@ -92,8 +92,6 @@ public class PrincipalController {
 
    }
 
-
-
     @GetMapping("/")
     public String mostrarProductos(Model model) {
         //System.out.println("#######PRUEBA_2#########");

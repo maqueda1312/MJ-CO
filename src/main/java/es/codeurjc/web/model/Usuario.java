@@ -40,6 +40,8 @@ public class Usuario {
 	@ElementCollection(fetch=FetchType.EAGER)
 	private List<String> roles;
 
+	
+
 	public Usuario() {
 	}
 
@@ -101,6 +103,14 @@ public class Usuario {
 
 	public void setPedidos(List<Pedido> pedidos) {
 		this.pedidos = pedidos;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	//faltaria meter el borrarpedido
