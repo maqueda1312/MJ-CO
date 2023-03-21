@@ -117,18 +117,13 @@ public class CarritoController {
 		Pedido pedido = new Pedido();
 		double suma=0;
 
-		Principal principal = request.getUserPrincipal();
-
-      if (principal != null) {
-
-		model.addAttribute("logged", true);
-
-      } else {
-          model.addAttribute("logged", false);
-      }
+	
 
 		// por lo que hay que recuperar el carrito y mover productos de carrito a pedido (eliminando los productos del carrito)
-		CarritodeCompra carrito = carritoService.findAll().get(0);
+		Principal principal = request.getUserPrincipal();
+		Optional <Usuario> optionalUser = usuarioRepository.findByName(principal.getName());
+		Usuario user = optionalUser.get();
+		CarritodeCompra carrito = user.getCarrito();
 		List <Producto> listaProductos = carrito.getListaProductos();
 		//pedido.setListaProductos(listaProductos);
 		for(Producto p:listaProductos){
