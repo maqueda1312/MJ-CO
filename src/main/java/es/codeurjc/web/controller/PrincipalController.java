@@ -7,6 +7,7 @@ import es.codeurjc.web.repository.UsuarioRepository;
 
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,6 +42,9 @@ public class PrincipalController {
     @Autowired
     private CarritoService carritoService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
    @PostConstruct
     public void init(){
         //System.out.println("#######PRUEBA_1#########");
@@ -51,10 +55,15 @@ public class PrincipalController {
         productoService.save(new Producto ("Pantalla LG 4K", 270.00, "Pantalla curva LG 27' 4K UHD"));
         
         //creacion de usuario de prueba
-       Usuario admin = new Usuario("USU1", "CORREO1", "pass", "admin");
+       Usuario admin = new Usuario("ADMIN", "CORREO1",passwordEncoder.encode("pass"), "ADMIN","USER");
        admin.setCarrito(new CarritodeCompra()); 
        usuarioRepository.save(admin);
-       usuarioRepository.save(new Usuario("USU2", "CORREO2", "pass", "user"));
+
+
+       Usuario user = new Usuario ("USU", "CORREO2", passwordEncoder.encode("pass"), "USER");
+       user.setCarrito(new CarritodeCompra());
+       usuarioRepository.save(user);
+
       }
 
 
@@ -65,16 +74,14 @@ public class PrincipalController {
 
         if (principal != null) {
 
-            Optional <Usuario> optionalAdmin = usuarioRepository.findByName(principal.getName());
-            if (optionalAdmin.isPresent()){
-                Usuario admin = optionalAdmin.get();
-                CarritodeCompra carrito = admin.getCarrito();
+            Optional <Usuario> optionalUser = usuarioRepository.findByName(principal.getName());
+            if (optionalUser.isPresent()){
+                Usuario user = optionalUser.get();
+                CarritodeCompra carrito = user.getCarrito();
                 model.addAttribute("idCarrito", carrito.getId());
-            }
-
-
-
-            model.addAttribute("admin", request.isUserInRole("ADMIN"));
+                model.addAttribute("logged", true);
+                model.addAttribute("isAdmin", request.isUserInRole("ADMIN"));
+            }            
 
         } else {
             model.addAttribute("logged", false);

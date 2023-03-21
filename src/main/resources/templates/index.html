@@ -11,9 +11,16 @@
 	{{/productos}}
 	</ul>
 
-
+{{#isAdmin}}
 <button onclick="location.href='/nuevoProducto'">AGREGAR PRODUCTO</button>
-<button onclick="location.href='/carrito/{id}'">VER CARRITO</button>
+{{/isAdmin}}
+
+{{#logged}}
+<button onclick="location.href='/carrito/{{idCarrito}}'">VER CARRITO</button>
+{{/logged}}
+
 <button onclick="location.href='/faq.html'">PREGUNTAS FRECUENTES</button>
 
 {{>footer}}
+
+

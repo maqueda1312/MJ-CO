@@ -36,13 +36,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/login").permitAll();
         http.authorizeRequests().antMatchers("/loginerror").permitAll();
         http.authorizeRequests().antMatchers("/logout").permitAll();
-        http.authorizeRequests().antMatchers("/carrito/*").permitAll();
+        
         http.authorizeRequests().antMatchers("/producto/*").permitAll();
         http.authorizeRequests().antMatchers("/productoCarrito/*").permitAll();
 
         // Private pages
-        http.authorizeRequests().antMatchers("/nuevoProducto").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers("/nuevoProducto").hasAnyRole("ADMIN");
         http.authorizeRequests().antMatchers("/pedido").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers("/carrito/*").hasAnyRole("USER");
         
         // Login form
         http.formLogin().loginPage("/login");
