@@ -1,6 +1,4 @@
-<!-- ver pedido y comprar-->
-<!DOCTYPE html>
-<html>
+{{>header}}
 <body>
 
 <h1 style="color: #4485b8;">Bienvenido a tu carrito de informatica preferida</h1>
@@ -14,10 +12,35 @@
         {{/carrito.listaProductos}}
     </ul>
 
-    {{logged}}
+<div>
+    <label>Nombre: </label>
+    <input name="nombre" placeholder="nombre" required/>
+</div>
+<div>
+    <label>Apellido: </label>
+    <input name="apellido" placeholder="Apellido" required/>
+</div>
+<div>
+    <label>Telf: </label>
+    <input type="tel" name="telefono" placeholder="telefono" pattern="[0-9]{9}" required></textarea>
+</div>
+<div>
+    <label>mail: </label>
+    <input type="email" name="email" placeholder="user@example.com" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required>
+</div>
+<div>
+    <label>Direccion: </label>
+    <input direccion="calle" placeholder="Direccion" required/>
+</div>
+<div>
+    <label>CP: </label>
+    <input cp="calle" placeholder="Codigo postal" pattern="[0-9]{5}" required/>
+</div>
 
     {{#logged}}
     <button onclick="location.href='/pedido'">Realizar Compra</button>
     {{/logged}}
     <button onclick="location.href='/vaciarCarrito'">Vaciar Carrito</button>
     <button onclick="location.href='/'">Inicio</button>
+
+{{>footer}}
