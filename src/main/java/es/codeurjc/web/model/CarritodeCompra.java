@@ -23,7 +23,7 @@ public class CarritodeCompra {
 	@OneToOne (mappedBy="carrito")
 	private Usuario usuario;
 	
-	@OneToMany
+	@ManyToMany
 	private  List<Producto> listaProductos = new ArrayList<>(); 
 
 
