@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -51,9 +52,23 @@ public class CarritoController {
     CarritodeCompra carritoCompra;
 	Optional<Producto> productoaux;
 
-    @GetMapping("/carrito/{id}")
-	public String verCarrito(Model model, @PathVariable long id) {
-        model.addAttribute("carrito", carritoService.findById(id).get());
+
+	
+
+
+
+
+    @GetMapping("/carrito/")
+	public String verCarrito(Model model, HttpServletRequest request) {
+		Principal principal = request.getUserPrincipal();
+		Optional <Usuario> optionalUser = usuarioRepository.findByName(principal.getName());
+		if (optionalUser.isPresent()){
+			Usuario user = optionalUser.get();
+			CarritodeCompra carrito = user.getCarrito();
+			model.addAttribute("carrito", carrito);		
+			//De esta forma solo se ve el carrito del usuario sin poder ver el carrito de otro usuario. 
+		}
+        
 
 		
 		return "carrito";
