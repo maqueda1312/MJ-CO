@@ -111,7 +111,7 @@ public class CarritoController {
 		return "productoAgregadoCarrito";
 	}
 
-	@GetMapping("/pedido")
+	@PostMapping("/pedido")
 	public String obtenerPedido(Model model, HttpServletRequest request) throws IOException {
 		// deberia realizar un nuevo pedido
 		Pedido pedido = new Pedido();
@@ -151,6 +151,14 @@ public class CarritoController {
 		return "pedido";
 
 	}
+
+	//@PostMapping("/pedido")
+	//public String pedido(Model model){
+	//	return "pedido";
+	//}
+
+
+
     //****************hasta aqui funciona
 	@GetMapping("/vaciarCarrito")
 	public String vaciarCarrito(Model model) throws IOException {
