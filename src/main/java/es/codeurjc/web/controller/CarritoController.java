@@ -175,5 +175,25 @@ public class CarritoController {
 
 		return "vaciarCarrito";
 	}
+	@GetMapping("/mispedidos")
+	public String mispedidos(Model model,HttpServletRequest request) {
+		
+		Principal principal = request.getUserPrincipal();
+		Optional <Usuario> optionalUser = usuarioRepository.findByName(principal.getName());
+		Usuario user = optionalUser.get();
+		ArrayList <Pedido> pedidos = new ArrayList<Pedido>();
+		
+		List <Pedido> peds= user.getPedidos();
+		
+		for(Pedido p:peds){
+
+			pedidos.add(p);
+	
+		}
+	
+		model.addAttribute("pedidos",pedidos);	
+		
+		return "mispedidos";
+	}
 
 }
