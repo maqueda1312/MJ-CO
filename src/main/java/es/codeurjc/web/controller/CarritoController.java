@@ -150,6 +150,10 @@ public class CarritoController {
 
 		return "pedido";
 
+
+		//PAra el servivcio interno, hay que recoger la info de los 
+
+
 	}
 
 	//@PostMapping("/pedido")
