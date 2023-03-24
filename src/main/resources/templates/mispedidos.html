@@ -1,0 +1,28 @@
+
+
+{{>header}}
+<body>
+
+<h1 style="color: #555a99;">Pedidos realizados:</h1>
+
+
+	<p>Detalles del pedido:</p>
+
+	{{#pedidos}}
+	<ul>
+		<li> Pedido numero: {{id}} </li>    
+		&nbsp   
+		{{#this.listaProductos}}
+			
+            <li>{{nombre}} //\\ {{descripcion}} //\\ {{precio}} Euros</li>
+            
+        {{/this.listaProductos}}
+        &nbsp
+        <li> Precio total: {{suma}} </li> 
+    </ul>
+    {{/pedidos}}
+   
+
+
+    <button onclick="location.href='/'">Inicio</button>
+{{>footer}}
