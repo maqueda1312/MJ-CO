@@ -1,6 +1,7 @@
 package es.codeurjc.web.controller;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.security.Principal;
 import java.util.Optional;
 
@@ -26,6 +27,7 @@ import es.codeurjc.web.repository.PedidoRepository;
 import es.codeurjc.web.repository.ProductoRepository;
 import es.codeurjc.web.repository.UsuarioRepository;
 import es.codeurjc.web.service.CarritoService;
+import es.codeurjc.web.service.EmailService;
 import es.codeurjc.web.service.ProductoService;
 
 @Controller
@@ -49,6 +51,9 @@ public class CarritoController {
     @Autowired
 	private UsuarioRepository usuarioRepository;	
 
+	@Autowired
+	private EmailService emailService;
+	
     CarritodeCompra carritoCompra;
 	Optional<Producto> productoaux;
 
@@ -112,7 +117,7 @@ public class CarritoController {
 	}
 
 	@PostMapping("/pedido")
-	public String obtenerPedido(Model model, HttpServletRequest request, Pedido pedido) throws IOException {
+	public String obtenerPedido(Model model, HttpServletRequest request, Pedido pedido) throws IOException, URISyntaxException {
 		// deberia realizar un nuevo pedido
 		
 		double suma=0;
@@ -148,6 +153,7 @@ public class CarritoController {
 		
 		model.addAttribute("pedido",pedido );
 
+		emailService.sendConfirmacionPedido(pedido);
 		return "pedido";
 
 
