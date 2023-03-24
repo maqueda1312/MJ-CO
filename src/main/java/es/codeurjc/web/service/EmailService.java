@@ -33,14 +33,17 @@ import static es.codeurjc.web.constant.InternalServicesStaticValues.URL_FOLLOW_B
      }
         //Aqui irian los objetos que queremos que salgan en los email? Nombre, direccion, pedido y precio?
 
-    // public String resumenPedido(Pedido pedido){
-    //     String pedidoPersonal;
-    //     List <Producto> listaProductos = pedido.getListaProductos();
+     public String resumenPedido(Pedido pedido){
         
-        
-    //     return service;
-        
-    // }
+        String pedidoPersonal = "";
+        List <Producto> listaProductos = pedido.getListaProductos();
+        for(int i=0; i<listaProductos.size(); i++){
+            
+            Producto producto = listaProductos.get(i);
+            pedidoPersonal += producto.getNombre() + " " + producto.getDescripcion() + " " + producto.getPrecio() + "\n";
+        } 
+        return pedidoPersonal += "Precio total: " + pedido.suma + "\n";
+     }
 
      public void sendConfirmacionPedido(Pedido pedido)
              throws URISyntaxException {
@@ -49,10 +52,13 @@ import static es.codeurjc.web.constant.InternalServicesStaticValues.URL_FOLLOW_B
                  pedido.getMail(),
                  "Pedido realizado en MJ&CO",
                  """
+                        El pedido realizado es
+                        %s
+
                         La direccion de envio es la siguiente: %s , nuestro plan es que te llegue en los proximos 3 dias. 
                                                 
                          %s %s gracias por comprar en nuestra tienda y confiar en nosotros!                        
-                         """.formatted(pedido.getDireccion(), pedido.getNombre(), pedido.getApellido())
+                         """.formatted(resumenPedido(pedido),pedido.getDireccion(), pedido.getNombre(), pedido.getApellido())
                                           
                          
 
