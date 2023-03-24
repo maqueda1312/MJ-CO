@@ -28,6 +28,7 @@
 
 //     public record EmailRequest(String to, String subject, String body) {
 //     }
+        //Aqui irian los objetos que queremos que salgan en los email? Nombre, direccion, pedido y precio?
 
 //     public void sendFollowedByUserMail(String follower, String emailAddress)
 //             throws URISyntaxException {

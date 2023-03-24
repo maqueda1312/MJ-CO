@@ -25,7 +25,64 @@ public class Pedido {
     private Long id;
     private double precio;
     public double suma;
-  
+    private String nombre;
+    private String Apellido;
+    private Long Telefono;
+    private String Mail;
+    private String Direccion;
+    private int CP;
+
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return Apellido;
+    }
+
+    public void setApellido(String apellido) {
+        Apellido = apellido;
+    }
+
+    public Long getTelefono() {
+        return Telefono;
+    }
+
+    public void setTelefono(Long telefono) {
+        Telefono = telefono;
+    }
+
+    public String getMail() {
+        return Mail;
+    }
+
+    public void setMail(String mail) {
+        Mail = mail;
+    }
+
+    public String getDireccion() {
+        return Direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        Direccion = direccion;
+    }
+
+    public int getCP() {
+        return CP;
+    }
+
+    public void setCP(int cP) {
+        CP = cP;
+    }
+
+
+      
 
     @ManyToOne
     private Usuario usuario;

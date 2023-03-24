@@ -112,9 +112,9 @@ public class CarritoController {
 	}
 
 	@PostMapping("/pedido")
-	public String obtenerPedido(Model model, HttpServletRequest request) throws IOException {
+	public String obtenerPedido(Model model, HttpServletRequest request, Pedido pedido) throws IOException {
 		// deberia realizar un nuevo pedido
-		Pedido pedido = new Pedido();
+		
 		double suma=0;
 
 	
