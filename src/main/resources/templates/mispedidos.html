@@ -6,19 +6,17 @@
 <h1 style="color: #555a99;">Pedidos realizados:</h1>
 
 
-	<p>Detalles del pedido:</p>
-
-	{{#pedidos}}
+		{{#pedidos}}
 	<ul>
-		<li> Pedido numero: {{id}} </li>    
+		<h5><li> ID DE PEDIDO: {{id}} </li>    </h5>
 		&nbsp   
 		{{#this.listaProductos}}
 			
-            <li>{{nombre}} //\\ {{descripcion}} //\\ {{precio}} Euros</li>
+        <li>______________{{nombre}} //\\ {{descripcion}} //\\ {{precio}} Euros</li>
             
         {{/this.listaProductos}}
         &nbsp
-        <li> Precio total: {{suma}} </li> 
+        <li> ______________Precio total: {{suma}} </li> 
     </ul>
     {{/pedidos}}
    
