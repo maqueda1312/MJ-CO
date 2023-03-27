@@ -171,9 +171,15 @@ public class CarritoController {
 
     //****************hasta aqui funciona
 	@GetMapping("/vaciarCarrito")
-	public String vaciarCarrito(Model model) throws IOException {
+	public String vaciarCarrito(Model model, HttpServletRequest request) throws IOException {
 
-		CarritodeCompra carrito = carritoService.findAll().get(0);
+
+		Principal principal = request.getUserPrincipal();
+		Optional <Usuario> optionalUser = usuarioRepository.findByName(principal.getName());
+		Usuario user = optionalUser.get();
+		CarritodeCompra carrito = user.getCarrito();
+		
+		
 		List <Producto> listaVacia = new ArrayList<>();
 		carrito.setListaProductos(listaVacia);
 		carritoService.save(carrito);
