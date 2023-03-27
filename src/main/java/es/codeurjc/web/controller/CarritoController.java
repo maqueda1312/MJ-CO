@@ -173,20 +173,18 @@ public class CarritoController {
 	@GetMapping("/vaciarCarrito")
 	public String vaciarCarrito(Model model, HttpServletRequest request) throws IOException {
 
-
 		Principal principal = request.getUserPrincipal();
 		Optional <Usuario> optionalUser = usuarioRepository.findByName(principal.getName());
 		Usuario user = optionalUser.get();
 		CarritodeCompra carrito = user.getCarrito();
-		
-		
+				
 		List <Producto> listaVacia = new ArrayList<>();
 		carrito.setListaProductos(listaVacia);
 		carritoService.save(carrito);
-
-
 		return "vaciarCarrito";
 	}
+
+
 	@GetMapping("/mispedidos")
 	public String mispedidos(Model model,HttpServletRequest request) {
 		
