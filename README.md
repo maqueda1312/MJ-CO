@@ -41,7 +41,9 @@
 
   - UML  
   
-  ![diagram](https://user-images.githubusercontent.com/118890068/228012473-4a78688d-9d10-4e92-bc00-c0dc706a12e8.png)
+  ![diagram](https://user-images.githubusercontent.com/118890068/228012473-4a78688d-9d10-4e92-bc00-c0dc706a12e8.png)  
+  ![image](https://user-images.githubusercontent.com/118890068/228016912-7453fd06-2271-4be5-979b-59e6011aa93c.png)  
+  
   - E/R  
   
   ![image](https://user-images.githubusercontent.com/118890068/221560091-a7f3077e-e7c2-4dea-a546-a1a68e61b42c.png)  
@@ -51,9 +53,9 @@
   - Página Principal:  
   Es la primera pagina al iniciar la web, desde aqui se visualizan todos los productos, pudiendo entrar en ellos para ver sus detalles. Tambien se pueden ver los botones para acceber a la pagina del carrito, a la pagina de añadir un nuevo producto a la base de datos y el de preguntas frequentes.  
     
- ![image](https://user-images.githubusercontent.com/123573638/227988181-689c8550-0d2c-4913-91b1-f7622378401c.png)
-  
-  - Página Producto:  
+ ![image](https://user-images.githubusercontent.com/123573638/227988181-689c8550-0d2c-4913-91b1-f7622378401c.png)  
+ 
+  - Página Producto: 
   Es una página simple donde se pueden ver los detalles de cada producto, nombre precio y descripcion. Desde esta pagina tambien se puede agregar el producto al carrito o eliminarlo de la base de datos.
     
   ![image](https://user-images.githubusercontent.com/123573638/227988547-7fe49c15-fc25-450f-ba58-92d053d8b8db.png)
