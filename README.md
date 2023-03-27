@@ -72,8 +72,10 @@
   Pagina en la que vemos el resumen de productos que hemos comprado asi como la cuantia total del pedido.  
     
  ![image](https://user-images.githubusercontent.com/123573638/227988350-a554c750-e974-4698-a9f9-530324486983.png)
-  - Página Ver mis pedidos:
-  Pagina en la que podemos ver los pedidos realizados tras su compra.
+ 
+ - Página Ver Mis pedidos:  
+  Pagina en la que podemos ver los pedidos realizados tras su compra. 
+
 ![image](https://user-images.githubusercontent.com/123573638/227989337-fadbda76-9820-422c-a477-6b92d9ca2c66.png)
 
 
