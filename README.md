@@ -79,4 +79,21 @@
 ![image](https://user-images.githubusercontent.com/123573638/227989337-fadbda76-9820-422c-a477-6b92d9ca2c66.png)
 
 
+  -Instrucciones precisas para desplegar la aplicación: compilación, cómo subir el jar, qué hace
+falta instalar en la máquina.
+Para subir el jar necesitamos encontarnos en el mismo directorio donde tenemos el par de claves, realizaremos el scp -i pardeclaves larutadelosjar/.jar ubuntu@tuping
+Luego tenemos que entrar en la maquina, con el ssh -i clave primaria ubuntu@ping
+
+Para compilarlo sería java -jar --server.port=8443 --email.user=usario --email.password=password app.jar
+
+Se necesita instalar el java usando estos comandos
+sudo apt-get update
+sudo apt install -y openjdk-17-jre
+java --version
+
+Para el docker:
+sudo apt install curl
+curl https://get.docker.com | sh
+sudo usermod -aG docker nombredelusuario
+sudo apt install docker-compose
 
