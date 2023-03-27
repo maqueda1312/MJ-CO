@@ -15,7 +15,11 @@
 <button onclick="location.href='/borrarProducto/{{producto.id}}'">Remove</button>
 {{/isAdmin}}
 
+
+{{#logged}}
 <button onclick="location.href='/productoCarrito/{{producto.id}}'">Añadir a Carrito</button>
+{{/logged}}
+
 <button onclick="location.href='/'">Inicio</button>
 
 
