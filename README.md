@@ -29,6 +29,7 @@
   - Usuario: utiliza la web y en la que tienes registrados los datos de compra (dirección, nombre o su historial de compra).
   
 - **Servicio interno**:
+  - https://github.com/olme97/ServicioInterno
 
   - Dispondrá de un servicio que mande e-mails después de realizar una compra con la confirmación del pedido y la factura del mismo.  
 
