@@ -8,10 +8,13 @@
     <li>{{descripcion}}</li>
 {{/producto}}
 </ul>
-<!-- formulario de nuevos productos-->
-{{#ADMIN}}
+
+
+
+{{#isAdmin}}
 <button onclick="location.href='/borrarProducto/{{producto.id}}'">Remove</button>
-{{/ADMIN}}
+{{/isAdmin}}
+
 <button onclick="location.href='/productoCarrito/{{producto.id}}'">Añadir a Carrito</button>
 <button onclick="location.href='/'">Inicio</button>
 
