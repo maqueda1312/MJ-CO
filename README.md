@@ -74,7 +74,7 @@
  ![image](https://user-images.githubusercontent.com/123573638/227988350-a554c750-e974-4698-a9f9-530324486983.png)
   - Página Ver mis pedidos:
   Pagina en la que podemos ver los pedidos realizados tras su compra.
-![image](https://user-images.githubusercontent.com/123573638/227988695-9ccb21a0-20e7-447c-8e7c-d44e493eff4c.png)
+![image](https://user-images.githubusercontent.com/123573638/227989337-fadbda76-9820-422c-a477-6b92d9ca2c66.png)
 
 
 
