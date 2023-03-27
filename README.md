@@ -41,7 +41,7 @@
 
   - UML  
   
-  ![MJCOuml](https://user-images.githubusercontent.com/118890068/221434201-2383fefe-3f69-4f8b-957e-86d43b1da413.png)
+  ![diagram](https://user-images.githubusercontent.com/118890068/228012473-4a78688d-9d10-4e92-bc00-c0dc706a12e8.png)
   - E/R  
   
   ![image](https://user-images.githubusercontent.com/118890068/221560091-a7f3077e-e7c2-4dea-a546-a1a68e61b42c.png)  
@@ -53,47 +53,49 @@
     
  ![image](https://user-images.githubusercontent.com/123573638/227988181-689c8550-0d2c-4913-91b1-f7622378401c.png)
   
-    - Página Producto:  
+  - Página Producto:  
   Es una página simple donde se pueden ver los detalles de cada producto, nombre precio y descripcion. Desde esta pagina tambien se puede agregar el producto al carrito o eliminarlo de la base de datos.
     
   ![image](https://user-images.githubusercontent.com/123573638/227988547-7fe49c15-fc25-450f-ba58-92d053d8b8db.png)
   
-    - Página Agregar Producto:  
+  - Página Agregar Producto:  
   Pagina en la que podemos añadir producto a la base de datos, en ella veremos un formulario para introducir el nombre el precio y una breve descripcion.  
     
- ![image](https://user-images.githubusercontent.com/123573638/227988397-9ed31d6c-a1a7-4229-9301-f2060b7537e6.png)
+  ![image](https://user-images.githubusercontent.com/123573638/227988397-9ed31d6c-a1a7-4229-9301-f2060b7537e6.png)
   
   - Página Carrito:  
   Pagina en la que podemos ver los productos que hemos añadido al carrito, podemos realizar el pedido o vaciar el carrito.  
     
-![image](https://user-images.githubusercontent.com/123573638/227988287-5b76d344-bffa-4138-927e-75744c52d9c7.png)
+  ![image](https://user-images.githubusercontent.com/123573638/227988287-5b76d344-bffa-4138-927e-75744c52d9c7.png)
     
   - Página Pedido:  
   Pagina en la que vemos el resumen de productos que hemos comprado asi como la cuantia total del pedido.  
     
- ![image](https://user-images.githubusercontent.com/123573638/227988350-a554c750-e974-4698-a9f9-530324486983.png)
+  ![image](https://user-images.githubusercontent.com/123573638/227988350-a554c750-e974-4698-a9f9-530324486983.png)
  
- - Página Ver Mis pedidos:  
+  - Página Ver Mis pedidos:  
   Pagina en la que podemos ver los pedidos realizados tras su compra. 
 
-![image](https://user-images.githubusercontent.com/123573638/227989337-fadbda76-9820-422c-a477-6b92d9ca2c66.png)
+  ![image](https://user-images.githubusercontent.com/123573638/227989337-fadbda76-9820-422c-a477-6b92d9ca2c66.png)
 
+  
+  
+ - Instrucciones precisas para desplegar la aplicación: compilación, cómo subir el jar, qué hace
+falta instalar en la máquina.  
 
-  -Instrucciones precisas para desplegar la aplicación: compilación, cómo subir el jar, qué hace
-falta instalar en la máquina.
-Para subir el jar necesitamos encontarnos en el mismo directorio donde tenemos el par de claves, realizaremos el scp -i pardeclaves larutadelosjar/.jar ubuntu@tuping
-Luego tenemos que entrar en la maquina, con el ssh -i clave primaria ubuntu@ping
+Para subir el jar necesitamos encontarnos en el mismo directorio donde tenemos los archivos, realizaremos el comando *scp -i rutadelaclavessh nombre.jar ubuntu@ip*.  
 
-Para compilarlo sería java -jar --server.port=8443 --email.user=usario --email.password=password app.jar
+Despues entraremos en la maquina, con el comando *ssh -i rutadelaclavessh ubuntu@ip*.  
 
-Se necesita instalar el java usando estos comandos
-sudo apt-get update
-sudo apt install -y openjdk-17-jre
-java --version
+Se necesita instalar JAVA usando estos comandos  
+*sudo apt-get update
+sudo apt install -y openjdk-17-jre*  
 
-Para el docker:
-sudo apt install curl
-curl https://get.docker.com | sh
-sudo usermod -aG docker nombredelusuario
-sudo apt install docker-compose
+Para el docker:  
+*curl https://get.docker.com | sh  
+sudo usermod -aG docker nombredelusuario  
+sudo apt install docker-compose*  
 
+Cuando tengamos todo instalado procedemos a ejecutar primero el servicio interno con el comando *java -jar nombre.jar --server.port=8443 --email.user=usario --email.password=password*; y seguido ejecutaremos la aplicacion con el comando *java -jar nombre.jar*.
+
+Por ultimo para acceder a la aplicacion desde el navegador deberemos escribir la url *https://ip:puerto*
