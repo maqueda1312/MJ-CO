@@ -21,6 +21,8 @@ import java.security.Principal;
 
 import es.codeurjc.web.service.CarritoService;
 import es.codeurjc.web.service.ProductoService;
+import es.codeurjc.web.service.UsuarioService;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -49,7 +51,8 @@ public class PrincipalController {
 
    @PostConstruct
     public void init(){
-        //System.out.println("#######PRUEBA_1#########");
+        if (!usuarioRepository.findByName("ADMIN").isPresent()){
+                 //System.out.println("#######PRUEBA_1#########");
         productoService.save(new Producto ("PRODUCTO 1", 35.00, "primera prueba"));
         productoService.save(new Producto ("RTX 4090 Founders Edition", 2000.00, "Tarjeta grafica NVIDIA"));
         productoService.save(new Producto ("Placa Base ", 150.00, "Placa Base Asus"));
@@ -65,6 +68,8 @@ public class PrincipalController {
        Usuario user = new Usuario ("USU", "CORREO2", passwordEncoder.encode("pass"), "USER");
        user.setCarrito(new CarritodeCompra());
        usuarioRepository.save(user);
+   
+        }
 
       }
 
