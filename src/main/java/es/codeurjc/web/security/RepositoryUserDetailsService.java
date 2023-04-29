@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,6 +22,7 @@ public class RepositoryUserDetailsService implements UserDetailsService {
 	private UsuarioRepository userRepository;
 
 	@Override
+	@Cacheable("loadUserByUsername")
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
 		Usuario user = userRepository.findByName(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
@@ -30,8 +32,7 @@ public class RepositoryUserDetailsService implements UserDetailsService {
 			roles.add(new SimpleGrantedAuthority("ROLE_" + role));
 		}
 
-		return new org.springframework.security.core.userdetails.User(user.getName(), 
-				user.getEncodedPassword(), roles);
+		return new org.springframework.security.core.userdetails.User(user.getName(), user.getEncodedPassword(), roles);
 
 	}
 }

@@ -1,8 +1,10 @@
 package es.codeurjc.web.controller;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -54,10 +56,13 @@ private PasswordEncoder passwordEncoder;
         usuario.setCarrito(new CarritodeCompra());
 
 		usuarioService.save(usuario);
-
+		
 		model.addAttribute("usuario", usuario.getId());
+		
 
 		return "redirect:/";
 	}
+   
+
 
 }
