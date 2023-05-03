@@ -53,7 +53,7 @@ public class PrincipalController {
     public void init(){
         if (!usuarioRepository.findByName("ADMIN").isPresent()){
                  //System.out.println("#######PRUEBA_1#########");
-        productoService.save(new Producto ("PRODUCTO 1", 35.00, "primera prueba"));
+        //productoService.save(new Producto ("PRODUCTO 1", 35.00, "primera prueba"));
         productoService.save(new Producto ("RTX 4090 Founders Edition", 2000.00, "Tarjeta grafica NVIDIA"));
         productoService.save(new Producto ("Placa Base ", 150.00, "Placa Base Asus"));
         productoService.save(new Producto ("Teclado Mecanico", 350.00, "Teclado Mecanico gamming"));
