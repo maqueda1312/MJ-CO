@@ -21,6 +21,6 @@ public class Application {
 	@Bean
 	@Primary
 	public CacheManager cacheManager(){
-		return new ConcurrentMapCacheManager("productos","loadUserByUsername");
+		return new ConcurrentMapCacheManager("productos");
 	}
 }

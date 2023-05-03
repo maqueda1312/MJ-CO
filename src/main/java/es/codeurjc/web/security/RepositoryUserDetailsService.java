@@ -22,7 +22,7 @@ public class RepositoryUserDetailsService implements UserDetailsService {
 	private UsuarioRepository userRepository;
 
 	@Override
-	@Cacheable("loadUserByUsername")
+	//@Cacheable("loadUserByUsername")
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
 		Usuario user = userRepository.findByName(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
@@ -32,7 +32,8 @@ public class RepositoryUserDetailsService implements UserDetailsService {
 			roles.add(new SimpleGrantedAuthority("ROLE_" + role));
 		}
 
-		return new org.springframework.security.core.userdetails.User(user.getName(), user.getEncodedPassword(), roles);
+		return new org.springframework.security.core.userdetails.User(user.getName(), 
+				user.getEncodedPassword(), roles);
 
 	}
 }

@@ -18,12 +18,12 @@ public class CacheController {
 
 
 
-    @RequestMapping(value="/cacheUsuarios", method= RequestMethod.GET)
+    /*@RequestMapping(value="/cacheUsuarios", method= RequestMethod.GET)
     public Map<Object, Object> getCacheUsuariosContent() {
         ConcurrentMapCacheManager cacheMgr = (ConcurrentMapCacheManager) cacheManager;
         ConcurrentMapCache cache = (ConcurrentMapCache) cacheMgr.getCache("loadUserByUsername");
         return cache.getNativeCache();
-    }
+    }*/
 
     @RequestMapping(value="/cacheProductos", method= RequestMethod.GET)
     public Map<Object, Object> getCacheProductosContent() {
