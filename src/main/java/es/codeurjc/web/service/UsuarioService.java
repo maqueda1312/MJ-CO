@@ -8,35 +8,35 @@ import es.codeurjc.web.repository.UsuarioRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
+//import org.springframework.cache.annotation.CacheEvict;
+//import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
-@CacheConfig(cacheNames = "usuarios")
+//@CacheConfig(cacheNames = "usuarios")
 public class UsuarioService {
 	
     @Autowired
     private UsuarioRepository repository;
     
-    @Cacheable
+    //@Cacheable
     public Optional<Usuario> findById(long id) {
         return repository.findById(id);
     }
     
-    @Cacheable
+    //@Cacheable
     public boolean exist(long id) {
         return repository.existsById(id);
     }
-    @Cacheable
+    //@Cacheable
     public List<Usuario> findAll() {
         return repository.findAll();
     }
-    @CacheEvict(allEntries = true)
+    //@CacheEvict(allEntries = true)
     public void save(Usuario usuario) {
         repository.save(usuario);
     }
-    @CacheEvict(allEntries = true)
+    //@CacheEvict(allEntries = true)
     public void delete(long id) {
         repository.deleteById(id);
     }
