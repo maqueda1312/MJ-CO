@@ -1,5 +1,7 @@
 # Nombre: MJ-CO
 
+- **Video**: https://youtu.be/rYJv4WFTDf0
+
 - **Descripción**:
   - Tienda de componentes de ordenador y ordenadores hechos.
 
@@ -41,7 +43,7 @@
 
   - UML  
   
-  ![diagram](https://user-images.githubusercontent.com/118890068/228012473-4a78688d-9d10-4e92-bc00-c0dc706a12e8.png)  
+  ![image](https://user-images.githubusercontent.com/118890068/236480231-0e6ba0a7-91ae-46ab-9480-2ada4854725a.png) 
   ![image](https://user-images.githubusercontent.com/118890068/228016912-7453fd06-2271-4be5-979b-59e6011aa93c.png)  
   
   - E/R  
